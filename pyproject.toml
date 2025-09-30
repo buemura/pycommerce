@@ -13,6 +13,7 @@ dependencies = [
   "fastapi",
   "uvicorn[standard]",
   "pydantic-settings",
+  "python-multipart",
 ]
 
 [tool.pytest.ini_options]

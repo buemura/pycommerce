@@ -1,16 +1,12 @@
 from fastapi import FastAPI
-from app.api.v1.routes_example import router as items_router
-from app.core.config import settings
+
+from app.api.routes.auth import auth_router
+from app.shared.config import settings
 
 
 def create_app() -> FastAPI:
     app = FastAPI(title=settings.app_name, debug=settings.debug)
-
-    @app.get("/health", tags=["meta"])
-    def health():
-        return {"status": "ok"}
-
-    app.include_router(items_router)
+    app.include_router(auth_router)
     return app
 
 
