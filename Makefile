@@ -7,11 +7,14 @@ format:
 lint:
 	ruff check .
 
-mig-gen:
+mig_gen:
 	alembic revision --autogenerate -m "$(m)"
 
-mig-push:
+mig_push:
 	alembic upgrade head
 
-run-dev:
+seed_products:
+	python -m scripts.seed.seed_products
+
+run_dev:
 	uvicorn app.main:app --reload --host 0.0.0.0 --port 8000

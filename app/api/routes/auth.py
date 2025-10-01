@@ -7,10 +7,10 @@ from app.modules.user.schemas import RegisterIn, LoginIn, UserPublic, LoginOut
 from app.shared.db import get_session
 from app.shared.security import hash_password, verify_password, generate_access_token
 
-auth_router = APIRouter(prefix="/auth", tags=["auth"])
+router = APIRouter(prefix="/auth", tags=["auth"])
 
 
-@auth_router.post("/register", response_model=UserPublic, status_code=201)
+@router.post("/register", response_model=UserPublic, status_code=201)
 async def register(body: RegisterIn, session: AsyncSession = Depends(get_session)):
     existing = await session.scalar(select(User).where(User.email == body.email))
     if existing:
@@ -27,7 +27,7 @@ async def register(body: RegisterIn, session: AsyncSession = Depends(get_session
     return user
 
 
-@auth_router.post("/login", response_model=LoginOut)
+@router.post("/login", response_model=LoginOut)
 async def login(
     body: LoginIn,
     session: AsyncSession = Depends(get_session),

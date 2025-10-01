@@ -1,0 +1,92 @@
+[
+    {
+        "name": "Apple MacBook Air M2",
+        "description": "13-inch laptop with M2 chip and 16GB RAM",
+        "price": 1299.00,
+        "stock": 15
+    },
+    {
+        "name": "Dell XPS 15",
+        "description": "15-inch laptop with Intel i7 and NVIDIA GPU",
+        "price": 1899.00,
+        "stock": 10
+    },
+    {
+        "name": "iPhone 14 Pro",
+        "description": "6.1-inch smartphone with OLED display and A16 Bionic",
+        "price": 999.00,
+        "stock": 25
+    },
+    {
+        "name": "Samsung Galaxy S23",
+        "description": "5G smartphone with AMOLED display and triple camera",
+        "price": 899.00,
+        "stock": 30
+    },
+    {
+        "name": "Sony WH-1000XM5",
+        "description": "Noise-cancelling wireless headphones",
+        "price": 399.00,
+        "stock": 40
+    },
+    {
+        "name": "Logitech MX Keys",
+        "description": "Wireless illuminated keyboard",
+        "price": 119.00,
+        "stock": 20
+    },
+    {
+        "name": "Dell UltraSharp U2723QE",
+        "description": "27-inch 4K IPS monitor",
+        "price": 650.00,
+        "stock": 12
+    },
+    {
+        "name": "Logitech MX Master 3S",
+        "description": "Wireless ergonomic mouse",
+        "price": 99.00,
+        "stock": 35
+    },
+    {
+        "name": "Apple Watch Series 8",
+        "description": "Smartwatch with GPS and health tracking",
+        "price": 399.00,
+        "stock": 18
+    },
+    {
+        "name": "iPad Pro 11",
+        "description": "11-inch tablet with M2 chip and Apple Pencil support",
+        "price": 799.00,
+        "stock": 14
+    },
+    {
+        "name": "Amazon Kindle Paperwhite",
+        "description": "E-reader with 6.8-inch display",
+        "price": 139.00,
+        "stock": 22
+    },
+    {
+        "name": "Bose SoundLink Flex",
+        "description": "Portable Bluetooth speaker",
+        "price": 149.00,
+        "stock": 28
+    },
+    {
+        "name": "Nintendo Switch OLED",
+        "description": "Hybrid handheld gaming console with OLED display",
+        "price": 349.00,
+        "stock": 16
+    },
+    {
+        "name": "PlayStation 5",
+        "description": "Sony next-gen gaming console",
+        "price": 499.00,
+        "stock": 8
+    },
+    {
+        "name": "Xbox Series X",
+        "description": "Microsoft next-gen gaming console",
+        "price": 499.00,
+        "stock": 10
+    }
+]
