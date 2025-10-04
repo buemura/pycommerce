@@ -2,9 +2,10 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, Query
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.api.di_container import make_product_client
 from app.shared.db import get_session
-from app.modules.product.schemas import ProductOut, ProductPage, PaginationMeta
-from app.modules.product.service import list_products, SortField, SortOrder
+from app.modules.product.schemas import ProductPage
+from app.modules.product.service import SortField, SortOrder
 
 router = APIRouter(tags=["products"])
 
@@ -20,16 +21,11 @@ async def get_products(
     ] = "asc",  # Literal["asc","desc"]
     session: AsyncSession = Depends(get_session),
 ):
-    items, total, page, pages = await list_products(
-        session,
+    client = make_product_client(session)
+    return await client.list_products(
         page=page,
         page_size=page_size,
         q=q,
         sort=sort,
         order=order,
-    )
-
-    return ProductPage(
-        data=[ProductOut.model_validate(i) for i in items],
-        meta=PaginationMeta(page=page, page_size=page_size, total=total, pages=pages),
     )

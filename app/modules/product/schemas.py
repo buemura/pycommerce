@@ -1,5 +1,8 @@
 from pydantic import BaseModel, Field
-from typing import List
+from typing import List, Literal
+
+SortField = Literal["name", "price"]
+SortOrder = Literal["asc", "desc"]
 
 
 class ProductOut(BaseModel):

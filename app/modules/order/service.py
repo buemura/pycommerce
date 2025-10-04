@@ -5,100 +5,109 @@ from sqlalchemy import func, select
 from sqlalchemy.orm import selectinload
 
 from app.modules.order.model import Order, OrderItem, OrderStatus
+from app.modules.order.schemas import OrderOut, OrderPage, PaginationMeta
 from app.modules.product.model import Product
 
 
-async def get_order(session: AsyncSession, order_id: int, *, user_id: int) -> Order | None:
-    stmt = (
-        select(Order)
-        .where(Order.id == order_id, Order.user_id == user_id)
-        .options(selectinload(Order.items))
-    )
-    return (await session.execute(stmt)).scalars().first()
+class OrderService:
+    def __init__(self, session: AsyncSession):
+        self.session = session
 
-
-async def list_orders(
-    session: AsyncSession,
-    *,
-    user_id: int,
-    page: int = 1,
-    page_size: int = 20,
-) -> tuple[list[Order], int, int, int]:
-    count_stmt = select(func.count()).select_from(Order).where(Order.user_id == user_id)
-    total = (await session.execute(count_stmt)).scalar_one()
-
-    pages = max(1, ceil(total / page_size)) if total else 1
-    page = max(1, min(page, pages))
-
-    stmt = (
-        select(Order)
-        .where(Order.user_id == user_id)
-        .order_by(Order.id.desc())
-        .limit(page_size)
-        .offset((page - 1) * page_size)
-        .options(selectinload(Order.items))
-    )
-    rows = (await session.execute(stmt)).scalars().all()
-    return list(rows), total, page, pages
-
-
-async def create_order_for_user(
-    session: AsyncSession,
-    *,
-    user_id: int,
-    items: list[tuple[int, int]],
-    decrement_stock: bool = True,
-) -> Order:
-    product_ids = [pid for pid, _ in items]
-    products = (
-        (await session.execute(select(Product).where(Product.id.in_(product_ids)))).scalars().all()
-    )
-    prod_map = {p.id: p for p in products}
-
-    for pid, qty in items:
-        p = prod_map.get(pid)
-        if not p:
-            raise ValueError(f"Product {pid} not found")
-        if decrement_stock and (p.stock or 0) < qty:
-            raise ValueError(f"Insufficient stock for product {p.name} (id={pid})")
-
-    order = Order(user_id=user_id, status=OrderStatus.WAITING_PAYMENT)
-    session.add(order)
-    await session.flush()  # get order.id
-
-    subtotal = 0.0
-    for pid, qty in items:
-        p = prod_map[pid]
-        price = float(p.price)
-        session.add(
-            OrderItem(
-                order_id=order.id,
-                product_id=p.id,
-                unit_price=price,
-                quantity=qty,
-            )
+    async def get_order(self, order_id: int, user_id: int) -> Order | None:
+        stmt = (
+            select(Order)
+            .where(Order.id == order_id, Order.user_id == user_id)
+            .options(selectinload(Order.items))
         )
-        subtotal += price * qty
+        return (await self.session.execute(stmt)).scalars().first()
 
-    order.subtotal = Decimal(str(round(subtotal, 2)))
+    async def list_orders(
+        self,
+        user_id: int,
+        page: int = 1,
+        page_size: int = 20,
+    ) -> OrderPage:
+        count_stmt = select(func.count()).select_from(Order).where(Order.user_id == user_id)
+        total = (await self.session.execute(count_stmt)).scalar_one()
 
-    result = await get_order(session, order.id, user_id=user_id)
-    if result is None:
-        raise ValueError("Order not found after creation")
-    return result
+        pages = max(1, ceil(total / page_size)) if total else 1
+        page = max(1, min(page, pages))
 
+        orders: list[OrderOut] = []
+        if total:
+            stmt = (
+                select(Order)
+                .where(Order.user_id == user_id)
+                .order_by(Order.id.desc())
+                .limit(page_size)
+                .offset((page - 1) * page_size)
+                .options(selectinload(Order.items))
+            )
+            orders = [
+                OrderOut.model_validate(order)
+                for order in (await self.session.execute(stmt)).scalars().all()
+            ]
 
-async def update_order_status(
-    session: AsyncSession, *, user_id: int, order_id: int, status: OrderStatus
-) -> Order:
-    order = await get_order(session, order_id, user_id=user_id)
-    if not order:
-        raise ValueError("Order not found")
-    if order.status in (OrderStatus.CANCELED, OrderStatus.COMPLETED):
-        raise ValueError(f"Order already {order.status}, cannot change status")
+        return OrderPage(
+            data=orders,
+            meta=PaginationMeta(page=page, page_size=page_size, total=total, pages=pages),
+        )
 
-    order.status = status
-    updated_order = await get_order(session, order_id, user_id=user_id)
-    if not updated_order:
-        raise ValueError("Order not found after status update")
-    return updated_order
+    async def create_order(
+        self,
+        user_id: int,
+        items: list[tuple[int, int]],
+        decrement_stock: bool = True,
+    ) -> Order:
+        product_ids = [pid for pid, _ in items]
+        products = (
+            (await self.session.execute(select(Product).where(Product.id.in_(product_ids))))
+            .scalars()
+            .all()
+        )
+        prod_map = {p.id: p for p in products}
+
+        for pid, qty in items:
+            p = prod_map.get(pid)
+            if not p:
+                raise ValueError(f"Product {pid} not found")
+            if decrement_stock and (p.stock or 0) < qty:
+                raise ValueError(f"Insufficient stock for product {p.name} (id={pid})")
+
+        order = Order(user_id=user_id, status=OrderStatus.WAITING_PAYMENT)
+        self.session.add(order)
+        await self.session.flush()  # get order.id
+
+        subtotal = 0.0
+        for pid, qty in items:
+            p = prod_map[pid]
+            price = float(p.price)
+            self.session.add(
+                OrderItem(
+                    order_id=order.id,
+                    product_id=p.id,
+                    unit_price=price,
+                    quantity=qty,
+                )
+            )
+            subtotal += price * qty
+
+        order.subtotal = Decimal(str(round(subtotal, 2)))
+
+        result = await self.get_order(order.id, user_id=user_id)
+        if result is None:
+            raise ValueError("Order not found after creation")
+        return result
+
+    async def update_order_status(self, user_id: int, order_id: int, status: OrderStatus) -> Order:
+        order = await self.get_order(order_id, user_id=user_id)
+        if not order:
+            raise ValueError("Order not found")
+        if order.status in (OrderStatus.CANCELED, OrderStatus.COMPLETED):
+            raise ValueError(f"Order already {order.status}, cannot change status")
+
+        order.status = status
+        updated_order = await self.get_order(order.id, user_id=user_id)
+        if not updated_order:
+            raise ValueError("Order not found after status update")
+        return updated_order
