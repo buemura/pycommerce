@@ -12,7 +12,7 @@ class UserService:
     def __init__(self, db_session: AsyncSession):
         self.session = db_session
 
-    async def get_user(self, user_id: int) -> User:
+    async def get_user(self, user_id: str) -> User:
         user = await self.session.scalar(select(User).where(User.id == user_id))
         if not user:
             raise HTTPException(status_code=404, detail="User not found")

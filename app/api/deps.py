@@ -25,14 +25,13 @@ async def get_current_user(
     token = credentials.credentials
     try:
         payload = jwt.decode(token, settings.jwt_secret, algorithms=[settings.jwt_algorithm])
-        sub = payload.get("sub")
-        if sub is None:
+        user_id = payload.get("sub")
+        if user_id is None:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail="Could not validate credentials",
                 headers={"WWW-Authenticate": "Bearer"},
             )
-        user_id = int(sub)
     except Exception:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,

@@ -31,7 +31,9 @@ async def list_my_orders(
 
 @router.get("/{order_id}", response_model=OrderOut)
 async def get_my_order(
-    order_id: int, session: AsyncSession = Depends(get_session), user=Depends(get_current_user)
+    order_id: int,
+    session: AsyncSession = Depends(get_session),
+    user=Depends(get_current_user),
 ):
     client = make_order_client(session)
     return await client.get_order(user_id=user.id, order_id=order_id)

@@ -15,6 +15,8 @@ from sqlalchemy import (
     Numeric,
 )
 from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy.ext.hybrid import hybrid_property
+
 
 from app.shared.db import BaseModel
 
@@ -29,7 +31,7 @@ class Order(BaseModel):
     __tablename__ = "orders"
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
-    user_id: Mapped[int] = mapped_column(ForeignKey("users.id", ondelete="RESTRICT"), index=True)
+    user_id: Mapped[str] = mapped_column(ForeignKey("users.id", ondelete="RESTRICT"), index=True)
     status: Mapped[OrderStatus] = mapped_column(
         SAEnum(OrderStatus, name="order_status", native_enum=True),
         default=OrderStatus.WAITING_PAYMENT,

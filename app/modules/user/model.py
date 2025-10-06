@@ -1,3 +1,4 @@
+import uuid
 from datetime import datetime
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import String, DateTime, UniqueConstraint, func
@@ -5,11 +6,19 @@ from sqlalchemy import String, DateTime, UniqueConstraint, func
 from app.shared.db import BaseModel
 
 
+def _generate_uuid() -> uuid.UUID:
+    return uuid.uuid4()
+
+
 class User(BaseModel):
     __tablename__ = "users"
     __table_args__ = (UniqueConstraint("email", name="uq_users_email"),)
 
-    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
+    id: Mapped[str] = mapped_column(
+        String(40),
+        primary_key=True,
+        default=lambda: str(_generate_uuid()),
+    )
     name: Mapped[str] = mapped_column(String(100))
     email: Mapped[str] = mapped_column(String(255), index=True)
     password: Mapped[str] = mapped_column(String(255))

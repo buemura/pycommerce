@@ -88,5 +88,581 @@
         "description": "Microsoft next-gen gaming console",
         "price": 499.00,
         "stock": 10
+    },
+    {
+        "name": "Nike Air Max 270",
+        "description": "Comfortable running shoes with large Air cushioning unit",
+        "price": 149.99,
+        "stock": 25
+    },
+    {
+        "name": "Adidas Ultraboost 22",
+        "description": "Performance running shoe with Boost midsole",
+        "price": 180.00,
+        "stock": 30
+    },
+    {
+        "name": "Levi's 501 Jeans",
+        "description": "Classic straight fit denim jeans for men",
+        "price": 89.99,
+        "stock": 40
+    },
+    {
+        "name": "North Face Puffer Jacket",
+        "description": "Insulated winter jacket with down filling",
+        "price": 199.00,
+        "stock": 18
+    },
+    {
+        "name": "Car Tire Michelin Pilot Sport 4",
+        "description": "High-performance tire for sports cars",
+        "price": 220.00,
+        "stock": 16
+    },
+    {
+        "name": "Bosch Spark Plug",
+        "description": "OEM-grade spark plug for efficient combustion",
+        "price": 15.00,
+        "stock": 100
+    },
+    {
+        "name": "Castrol EDGE 5W-30 Motor Oil",
+        "description": "Full synthetic engine oil for high-performance engines",
+        "price": 45.00,
+        "stock": 60
+    },
+    {
+        "name": "Car Battery Exide Premium",
+        "description": "12V car battery with long life and high cold-cranking amps",
+        "price": 160.00,
+        "stock": 20
+    },
+    {
+        "name": "Office Chair Ergonomic Pro",
+        "description": "Adjustable mesh chair with lumbar support",
+        "price": 299.00,
+        "stock": 12
+    },
+    {
+        "name": "Standing Desk 60-inch",
+        "description": "Electric height-adjustable standing desk for home office",
+        "price": 499.00,
+        "stock": 10
+    },
+    {
+        "name": "Logitech MX Master 3S",
+        "description": "Ergonomic wireless mouse with MagSpeed scroll wheel",
+        "price": 99.00,
+        "stock": 30
+    },
+    {
+        "name": "Keychron K6 Keyboard",
+        "description": "Wireless mechanical keyboard with hot-swappable keys",
+        "price": 89.00,
+        "stock": 25
+    },
+    {
+        "name": "Sony WH-1000XM5",
+        "description": "Noise-cancelling wireless headphones",
+        "price": 399.00,
+        "stock": 15
+    },
+    {
+        "name": "Bose SoundLink Revolve II",
+        "description": "Portable Bluetooth speaker with 360-degree sound",
+        "price": 179.00,
+        "stock": 22
+    },
+    {
+        "name": "KitchenAid Stand Mixer",
+        "description": "Iconic stand mixer with multiple attachments",
+        "price": 499.00,
+        "stock": 7
+    },
+    {
+        "name": "Instant Pot Duo 7-in-1",
+        "description": "Multi-use programmable pressure cooker",
+        "price": 129.00,
+        "stock": 25
+    },
+    {
+        "name": "Ninja Air Fryer XL",
+        "description": "Extra-large air fryer for quick healthy meals",
+        "price": 149.00,
+        "stock": 20
+    },
+    {
+        "name": "Dyson V15 Detect Vacuum",
+        "description": "Cordless vacuum with laser dust detection",
+        "price": 749.00,
+        "stock": 8
+    },
+    {
+        "name": "Philips Hue Smart Bulb",
+        "description": "Smart LED light bulb with color control via app",
+        "price": 49.00,
+        "stock": 50
+    },
+    {
+        "name": "Garmin Forerunner 965",
+        "description": "Advanced GPS running watch with AMOLED display",
+        "price": 599.00,
+        "stock": 10
+    },
+    {
+        "name": "Apple Watch Series 9",
+        "description": "Smartwatch with health monitoring and fitness tracking",
+        "price": 429.00,
+        "stock": 12
+    },
+    {
+        "name": "Canon EOS R8",
+        "description": "Mirrorless camera with full-frame sensor and 4K video",
+        "price": 1499.00,
+        "stock": 6
+    },
+    {
+        "name": "Fender Stratocaster",
+        "description": "Electric guitar with iconic tone and design",
+        "price": 1299.00,
+        "stock": 5
+    },
+    {
+        "name": "Yamaha Acoustic Guitar F310",
+        "description": "Beginner-friendly acoustic guitar",
+        "price": 199.00,
+        "stock": 14
+    },
+    {
+        "name": "Mountain Bike Trek Marlin 7",
+        "description": "Trail-ready mountain bike with hydraulic disc brakes",
+        "price": 899.00,
+        "stock": 8
+    },
+    {
+        "name": "Wilson Evolution Basketball",
+        "description": "Indoor game basketball with microfiber composite leather",
+        "price": 65.00,
+        "stock": 25
+    },
+    {
+        "name": "Spalding NBA Hoop Set",
+        "description": "Adjustable outdoor basketball hoop with tempered glass backboard",
+        "price": 499.00,
+        "stock": 4
+    },
+    {
+        "name": "Camping Tent Coleman 6-Person",
+        "description": "Waterproof family camping tent with easy setup",
+        "price": 229.00,
+        "stock": 10
+    },
+    {
+        "name": "Sleeping Bag North Peak 15°F",
+        "description": "Cold-weather sleeping bag for outdoor camping",
+        "price": 119.00,
+        "stock": 20
+    },
+    {
+        "name": "CeraVe Moisturizing Cream",
+        "description": "Daily hydrating cream for dry skin with ceramides",
+        "price": 19.00,
+        "stock": 80
+    },
+    {
+        "name": "Olaplex No. 3 Hair Perfector",
+        "description": "Restores damaged hair bonds for stronger strands",
+        "price": 30.00,
+        "stock": 40
+    },
+    {
+        "name": "Maybelline Lash Sensational Mascara",
+        "description": "Volumizing mascara with fanning brush",
+        "price": 12.00,
+        "stock": 100
+    },
+    {
+        "name": "Gillette Fusion5 Razor",
+        "description": "Men’s razor with 5 anti-friction blades",
+        "price": 25.00,
+        "stock": 75
+    },
+    {
+        "name": "Dewalt Cordless Drill",
+        "description": "Powerful 20V cordless drill with 2 batteries",
+        "price": 179.00,
+        "stock": 18
+    },
+    {
+        "name": "Makita Angle Grinder 4-1/2\"",
+        "description": "Heavy-duty angle grinder for metal and masonry",
+        "price": 129.00,
+        "stock": 20
+    },
+    {
+        "name": "Stanley 25ft Tape Measure",
+        "description": "Durable steel tape measure with locking mechanism",
+        "price": 14.00,
+        "stock": 100
+    },
+    {
+        "name": "HP LaserJet Pro M283fdw",
+        "description": "Wireless color laser printer for small offices",
+        "price": 499.00,
+        "stock": 10
+    },
+    {
+        "name": "Roku Streaming Stick 4K",
+        "description": "Compact streaming device with Dolby Vision support",
+        "price": 49.00,
+        "stock": 40
+    },
+    {
+        "name": "Google Nest Hub 2nd Gen",
+        "description": "Smart home display with Google Assistant",
+        "price": 99.00,
+        "stock": 25
+    },
+    {
+        "name": "LG 55\" OLED C3 TV",
+        "description": "4K OLED smart TV with vibrant colors and deep blacks",
+        "price": 1399.00,
+        "stock": 6
+    },
+    {
+        "name": "Kitchen Knife Set Victorinox",
+        "description": "Professional-grade stainless steel knife set",
+        "price": 199.00,
+        "stock": 15
+    },
+    {
+        "name": "Breville Barista Express",
+        "description": "Espresso machine with integrated grinder",
+        "price": 749.00,
+        "stock": 7
+    },
+    {
+        "name": "Book: The Pragmatic Programmer",
+        "description": "Classic software engineering guide by Andrew Hunt and David Thomas",
+        "price": 49.00,
+        "stock": 30
+    },
+    {
+        "name": "Book: Atomic Habits",
+        "description": "James Clear’s bestseller on habit formation and self-improvement",
+        "price": 24.00,
+        "stock": 40
+    },
+    {
+        "name": "Asus ROG Strix Gaming Laptop",
+        "description": "High-performance gaming laptop with NVIDIA RTX 4070 GPU",
+        "price": 1899.00,
+        "stock": 6
+    },
+    {
+        "name": "Razer BlackWidow V4 Keyboard",
+        "description": "Mechanical RGB keyboard with Green switches",
+        "price": 169.00,
+        "stock": 20
+    },
+    {
+        "name": "Corsair iCUE H150i Elite Cooler",
+        "description": "Liquid CPU cooler with RGB fans",
+        "price": 189.00,
+        "stock": 10
+    },
+    {
+        "name": "Seagate 2TB External Hard Drive",
+        "description": "Portable USB 3.0 hard drive for data storage",
+        "price": 79.00,
+        "stock": 35
+    },
+    {
+        "name": "LG Ultragear 27-inch Monitor",
+        "description": "144Hz gaming monitor with QHD resolution",
+        "price": 349.00,
+        "stock": 12
+    },
+    {
+        "name": "JBL Flip 6 Bluetooth Speaker",
+        "description": "Portable waterproof Bluetooth speaker",
+        "price": 129.00,
+        "stock": 25
+    },
+    {
+        "name": "GoPro HERO12 Black",
+        "description": "Waterproof 5.3K action camera with stabilization",
+        "price": 499.00,
+        "stock": 8
+    },
+    {
+        "name": "Apple AirPods Pro 2",
+        "description": "Wireless earbuds with active noise cancellation",
+        "price": 249.00,
+        "stock": 20
+    },
+    {
+        "name": "Samsung 1TB NVMe SSD",
+        "description": "High-speed internal SSD for gaming PCs and laptops",
+        "price": 109.00,
+        "stock": 25
+    },
+    {
+        "name": "Anker PowerCore 20000mAh",
+        "description": "High-capacity portable power bank with USB-C",
+        "price": 59.00,
+        "stock": 30
+    },
+    {
+        "name": "Apple iPad Air M2",
+        "description": "Lightweight tablet with M2 chip and 10.9-inch display",
+        "price": 699.00,
+        "stock": 10
+    },
+    {
+        "name": "Amazon Kindle Paperwhite",
+        "description": "E-reader with waterproof design and backlit display",
+        "price": 149.00,
+        "stock": 20
+    },
+    {
+        "name": "Logitech C920 HD Webcam",
+        "description": "1080p webcam ideal for streaming and video calls",
+        "price": 89.00,
+        "stock": 35
+    },
+    {
+        "name": "Sennheiser HD 660S2 Headphones",
+        "description": "Audiophile-grade open-back headphones",
+        "price": 599.00,
+        "stock": 7
+    },
+    {
+        "name": "HyperX Cloud III Gaming Headset",
+        "description": "Comfortable headset with surround sound",
+        "price": 119.00,
+        "stock": 18
+    },
+    {
+        "name": "SteelSeries Aerox 5 Wireless Mouse",
+        "description": "Ultra-lightweight gaming mouse with 9 buttons",
+        "price": 139.00,
+        "stock": 15
+    },
+    {
+        "name": "Nintendo Switch OLED",
+        "description": "Hybrid gaming console with OLED screen",
+        "price": 349.00,
+        "stock": 10
+    },
+    {
+        "name": "Elden Ring (PS5)",
+        "description": "Open-world action RPG from FromSoftware",
+        "price": 69.99,
+        "stock": 50
+    },
+    {
+        "name": "Call of Duty: Modern Warfare III",
+        "description": "First-person shooter video game for multiple platforms",
+        "price": 69.99,
+        "stock": 45
+    },
+    {
+        "name": "Lego Star Wars Millennium Falcon",
+        "description": "Ultimate Collector Series model with 7500+ pieces",
+        "price": 849.00,
+        "stock": 5
+    },
+    {
+        "name": "IKEA MALM Bed Frame",
+        "description": "Modern queen-size bed frame with storage drawers",
+        "price": 379.00,
+        "stock": 8
+    },
+    {
+        "name": "IKEA POÄNG Armchair",
+        "description": "Iconic bentwood armchair with cushion",
+        "price": 129.00,
+        "stock": 15
+    },
+    {
+        "name": "Dyson Pure Cool Air Purifier",
+        "description": "Air purifier and fan with HEPA filter",
+        "price": 599.00,
+        "stock": 6
+    },
+    {
+        "name": "Philips Sonicare DiamondClean",
+        "description": "Electric toothbrush with multiple modes",
+        "price": 199.00,
+        "stock": 30
+    },
+    {
+        "name": "Apple TV 4K (3rd Gen)",
+        "description": "Streaming box with A15 Bionic chip and HDR10+",
+        "price": 149.00,
+        "stock": 20
+    },
+    {
+        "name": "Samsung Soundbar HW-Q800C",
+        "description": "3.1.2-channel Dolby Atmos soundbar with subwoofer",
+        "price": 799.00,
+        "stock": 10
+    },
+    {
+        "name": "Fitbit Charge 6",
+        "description": "Fitness tracker with heart rate and GPS",
+        "price": 159.00,
+        "stock": 22
+    },
+    {
+        "name": "Bowflex SelectTech Dumbbells",
+        "description": "Adjustable dumbbells 5–52.5 lbs for home workouts",
+        "price": 429.00,
+        "stock": 12
+    },
+    {
+        "name": "Yoga Mat Manduka PRO",
+        "description": "Durable non-slip yoga mat with lifetime warranty",
+        "price": 129.00,
+        "stock": 25
+    },
+    {
+        "name": "Peloton Bike+",
+        "description": "Interactive indoor exercise bike with touchscreen display",
+        "price": 2495.00,
+        "stock": 4
+    },
+    {
+        "name": "Reebok Training Shorts",
+        "description": "Lightweight athletic shorts with moisture-wicking fabric",
+        "price": 29.00,
+        "stock": 40
+    },
+    {
+        "name": "Under Armour Gym Bag",
+        "description": "Durable duffle bag for gym and travel",
+        "price": 49.00,
+        "stock": 35
+    },
+    {
+        "name": "Nestle Nescafé Gold Instant Coffee",
+        "description": "Premium instant coffee blend with rich aroma",
+        "price": 12.00,
+        "stock": 200
+    },
+    {
+        "name": "Kellogg’s Corn Flakes 1kg",
+        "description": "Classic breakfast cereal with crunchy corn flavor",
+        "price": 8.50,
+        "stock": 100
+    },
+    {
+        "name": "Oreo Double Stuf Cookies",
+        "description": "Chocolate sandwich cookies with extra creme filling",
+        "price": 4.50,
+        "stock": 150
+    },
+    {
+        "name": "Purina ONE Dog Food 10kg",
+        "description": "High-protein dry food for active adult dogs",
+        "price": 59.00,
+        "stock": 40
+    },
+    {
+        "name": "Catit Water Fountain",
+        "description": "Pet drinking fountain with filter for fresh water",
+        "price": 39.00,
+        "stock": 25
+    },
+    {
+        "name": "Sony DualSense Controller",
+        "description": "Wireless controller for PlayStation 5",
+        "price": 69.00,
+        "stock": 30
+    },
+    {
+        "name": "Xbox Elite Controller Series 2",
+        "description": "Customizable pro-level controller for Xbox",
+        "price": 179.00,
+        "stock": 10
+    },
+    {
+        "name": "Apple Magic Trackpad",
+        "description": "Wireless multi-touch trackpad with rechargeable battery",
+        "price": 129.00,
+        "stock": 18
+    },
+    {
+        "name": "Razer Kraken Headset",
+        "description": "Gaming headset with cooling gel cushions",
+        "price": 99.00,
+        "stock": 22
+    },
+    {
+        "name": "Patagonia Fleece Jacket",
+        "description": "Eco-friendly outdoor fleece for cold weather",
+        "price": 139.00,
+        "stock": 20
+    },
+    {
+        "name": "Columbia Hiking Boots",
+        "description": "Waterproof boots for trail and mountain hiking",
+        "price": 159.00,
+        "stock": 15
+    },
+    {
+        "name": "Ray-Ban Aviator Sunglasses",
+        "description": "Classic metal frame aviator sunglasses with UV protection",
+        "price": 179.00,
+        "stock": 18
+    },
+    {
+        "name": "Apple AirTag 4-Pack",
+        "description": "Bluetooth tracker for locating personal items",
+        "price": 99.00,
+        "stock": 50
+    },
+    {
+        "name": "TP-Link Wi-Fi 6 Router AX5400",
+        "description": "High-speed dual-band router for seamless connectivity",
+        "price": 159.00,
+        "stock": 25
+    },
+    {
+        "name": "Ecovacs Deebot T20 Omni",
+        "description": "Smart vacuum and mop robot with auto-clean dock",
+        "price": 1099.00,
+        "stock": 5
+    },
+    {
+        "name": "Theragun Prime",
+        "description": "Percussive therapy massage gun for muscle recovery",
+        "price": 299.00,
+        "stock": 10
+    },
+    {
+        "name": "Goodyear All-Season Tire 205/55R16",
+        "description": "Durable tire for sedans with excellent wet traction",
+        "price": 119.00,
+        "stock": 35
+    },
+    {
+        "name": "Shell Helix Ultra 5W-40 Oil",
+        "description": "Premium synthetic motor oil for engine protection",
+        "price": 49.00,
+        "stock": 60
+    },
+    {
+        "name": "Black & Decker Leaf Blower",
+        "description": "Cordless blower for garden cleanup",
+        "price": 179.00,
+        "stock": 14
+    },
+    {
+        "name": "Weber Spirit II E-310 Grill",
+        "description": "3-burner gas grill for outdoor cooking",
+        "price": 599.00,
+        "stock": 7
     }
 ]

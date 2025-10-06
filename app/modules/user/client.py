@@ -8,7 +8,7 @@ from app.modules.user.service import UserService
 
 class UserClientInterface(ABC):
     @abstractmethod
-    async def get_user(self, user_id: int) -> User:
+    async def get_user(self, user_id: str) -> User:
         pass
 
     @abstractmethod
@@ -24,7 +24,7 @@ class UserClient(UserClientInterface):
     def __init__(self, db_session: AsyncSession):
         self.user_service = UserService(db_session=db_session)
 
-    async def get_user(self, user_id: int) -> User:
+    async def get_user(self, user_id: str) -> User:
         return await self.user_service.get_user(user_id)
 
     async def create_user(self, name: str, email: str, password: str) -> User:

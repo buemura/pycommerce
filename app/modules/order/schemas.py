@@ -8,7 +8,7 @@ from .model import OrderStatus
 
 class OrderItemIn(BaseModel):
     product_id: int
-    quantity: Annotated[int, Field(ge=1)] = 1  # instead of conint
+    quantity: int
 
 
 class OrderCreateIn(BaseModel):
@@ -17,19 +17,9 @@ class OrderCreateIn(BaseModel):
 
 class OrderItemOut(BaseModel):
     product_id: int
-    unit_price: Annotated[float, Field(ge=0)]
     quantity: int
+    unit_price: Annotated[float, Field(ge=0)]
     line_total: Annotated[float, Field(ge=0)]
-
-    @classmethod
-    def from_orm_item(cls, oi) -> "OrderItemOut":
-        unit = float(oi.unit_price)
-        return cls(
-            product_id=oi.product_id,
-            unit_price=unit,
-            quantity=oi.quantity,
-            line_total=unit * oi.quantity,
-        )
 
 
 class OrderOut(BaseModel):

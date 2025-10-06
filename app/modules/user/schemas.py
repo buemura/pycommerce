@@ -17,7 +17,7 @@ class LoginOut(BaseModel):
 
 
 class UserPublic(BaseModel):
-    id: int
+    id: str
     name: str
     email: EmailStr
 
